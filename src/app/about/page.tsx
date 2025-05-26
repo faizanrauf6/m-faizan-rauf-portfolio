@@ -115,13 +115,13 @@ export default function About() {
             vertical="center"
             marginBottom="32"
           >
-            {/* {about.calendar.display && (
+            {about.calendar.display && (
               <Flex
                 fitWidth
                 border="brand-alpha-medium"
                 className={styles.blockAlign}
                 style={{
-                  backdropFilter: "blur(var(--static-space-1))",
+                  backdropFilter: 'blur(var(--static-space-1))',
                 }}
                 background="brand-alpha-weak"
                 radius="full"
@@ -131,40 +131,15 @@ export default function About() {
                 vertical="center"
               >
                 <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
+                <CalTriggerButton>
+                  <Flex paddingX="8">Schedule a call</Flex>
+                </CalTriggerButton>
                 <IconButton
-                  href={about.calendar.link}
                   data-border="rounded"
                   variant="secondary"
                   icon="chevronRight"
                 />
               </Flex>
-            )} */}
-            {about.calendar.display && (
-              <CalTriggerButton>
-                <Flex
-                  fitWidth
-                  border="brand-alpha-medium"
-                  className={styles.blockAlign}
-                  style={{
-                    backdropFilter: 'blur(var(--static-space-1))',
-                  }}
-                  background="brand-alpha-weak"
-                  radius="full"
-                  padding="4"
-                  gap="8"
-                  marginBottom="m"
-                  vertical="center"
-                >
-                  <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                  <Flex paddingX="8">Schedule a call</Flex>
-                  <IconButton
-                    data-border="rounded"
-                    variant="secondary"
-                    icon="chevronRight"
-                  />
-                </Flex>
-              </CalTriggerButton>
             )}
             <Heading className={styles.textAlign} variant="display-strong-xl">
               {person.name}
