@@ -5,13 +5,13 @@ const routes = {
   '/about': true,
   '/work': true,
   '/blog': true,
-  '/gallery': true,
+  '/gallery': false,
 };
 
 // Enable password protection on selected routes
 // Set password in the .env file, refer to .env.example
 const protectedRoutes = {
-  '/gallery': true,
+  '/gallery': false,
   '/work/personalization-for-pod-sellers': false,
 };
 
