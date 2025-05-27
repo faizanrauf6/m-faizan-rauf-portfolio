@@ -14,8 +14,7 @@ import {
   TextVariant,
   TextWeight,
 } from "./types";
-import * as SiIcons from "react-icons/si";
-export type IconKey = keyof typeof SiIcons;
+import { IconKey } from "@/app/utils/iconMap";
 
 export interface GridProps extends HTMLAttributes<HTMLDivElement> {
   columns?: gridColumns;
@@ -188,5 +187,6 @@ export interface CommonProps extends HTMLAttributes<HTMLDivElement> {
 export interface Skill {
   title: string;
   icon: IconKey;
-  description: string;
+  description: React.ReactNode;
+  category: string;
 }

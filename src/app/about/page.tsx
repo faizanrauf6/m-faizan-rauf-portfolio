@@ -16,8 +16,9 @@ import styles from "@/components/about/about.module.scss";
 import { person, about, social } from "@/app/resources/content";
 import React from "react";
 import { Meta, Schema } from "@/once-ui/modules";
-import * as SiIcons from "react-icons/si"; // import all simple-icons
+import * as SiIcons from "react-icons/si";
 import CalTriggerButton from "@/components/CalTriggerButton";
+import { IconKey, iconMap } from "../utils/iconMap";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -287,26 +288,10 @@ export default function About() {
               >
                 {about.technical.title}
               </Heading>
-              {/* <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => {
-                  const IconComponent = SiIcons[skill.Icon as keyof typeof SiIcons];
-                  return (
-                    <Flex key={`${skill}-${index}`} fillWidth gap="12" align="start">
-                      {IconComponent && <IconComponent size={40} />}
-                      <Column gap="1">
-                        <Text variant="heading-strong-l">{skill.title}</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                          {skill.description}
-                        </Text>
-                      </Column>
-                    </Flex>
-                  );
-                })}
-              </Column> */}
               <Column fillWidth gap="xl">
                 {Object.entries(
                   about.technical.skills.reduce((acc, skill) => {
-                    const category = skill.category || 'General';
+                    const category = skill.category || "General";
                     if (!acc[category]) acc[category] = [];
                     acc[category].push(skill);
                     return acc;
@@ -315,18 +300,18 @@ export default function About() {
                   <Column key={category} fillWidth gap="l">
                     <Text variant="heading-strong-xl">{category}</Text>
                     {skills.map((skill, index) => {
-                      const IconComponent = SiIcons[skill.Icon as keyof typeof SiIcons];
+                      const IconComponent = iconMap[skill.Icon as IconKey];
                       return (
                         <Flex key={`${skill.title}-${index}`} fillWidth gap="12" align="start">
-                            <div style={{ flexShrink: 0 }}>
-                              {IconComponent && <IconComponent size={40} />}
-                            </div>
-                            <Column gap="1">
-                              <Text variant="heading-strong-l">{skill.title}</Text>
-                              <Text variant="body-default-m" onBackground="neutral-weak">
-                                {skill.description}
-                              </Text>
-                            </Column>
+                          <div style={{ flexShrink: 0 }}>
+                            {IconComponent ? <IconComponent size={40} /> : null}
+                          </div>
+                          <Column gap="1">
+                            <Text variant="heading-strong-l">{skill.title}</Text>
+                            <Text variant="body-default-m" onBackground="neutral-weak">
+                              {skill.description}
+                            </Text>
+                          </Column>
                         </Flex>
                       );
                     })}

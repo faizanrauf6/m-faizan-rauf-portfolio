@@ -69,6 +69,7 @@ const RouteGuard: React.FC<RouteGuardProps> = ({ children }) => {
     });
 
     if (response.ok) {
+      setPassword("");
       setIsAuthenticated(true);
       setError(undefined);
     } else {
